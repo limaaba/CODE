@@ -3,13 +3,15 @@
 
 ?>
 
-<html lang="en">dd
+<html lang="en">
   <head>
     <title>PDO Operation</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" 
+    integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
 
@@ -29,6 +31,7 @@
                     <th>Contact Number</th>
                     <th>Address</th>
                    <th> Posting Date</th>
+                   <th> Edit</th>
                 </thead>
                 <tbody>
                       <?php
@@ -54,6 +57,8 @@
                         <td><?php echo htmlentities($result->ContactNumber);?></td>
                         <td><?php echo htmlentities($result->Address);?></td>
                         <td><?php echo htmlentities($result->PostingDate);?></td>
+                        <td><a href="update.php?id=<?php echo htmlentities($result->id);?>" class="btn btn-success"><spam class="fa fa-edit"></sapm></a></td>
+                        
                        </tr>
 
                       <?php
