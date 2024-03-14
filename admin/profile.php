@@ -14,7 +14,7 @@ if (isset($_POST['upload'])) {
     $location="/upload/".$file_name;
 
     if ($file_size < 524880) {
-       if (move_uploaded_file($_FILES['file']['tmp_name'],$location)) {
+       if (move_uploaded_file($file_temp,$location)) {
         try {
             $bdh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
             $sql ="UPDATE tblusers SET `Photo`='$location' WHERE `id`='$userid'";

@@ -1,4 +1,6 @@
 <?php
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
 require_once('dbconfig.php');
 
 if (isset($_POST['insert'])) {
