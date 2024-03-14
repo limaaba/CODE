@@ -1,14 +1,14 @@
 <?php
 session_start();
 try {
-    require_once "admin/dbconfig.php";
+    require_once "dbconfig.php";
     if (isset($_POST['login'])) {
 
         if(empty($_POST['userneme']) || empty($_POST['password'])){
            
             $message= "All fields are required";
     }else{
-        $sql = "SELECT * FROM tbladmin WHERE username=:username AND password=:password";
+        $sql = "SELECT * FROM tbladmin WHERE 'username'=:username AND 'password'=:password";
 
         $userrow = $dbh->prepare($sql);
         $userrow->execute(
@@ -43,7 +43,7 @@ try {
   <body style="background-color: #eee;">
       <div class="container" style="width: 30%;">
           <h3>Admin Login</h3>
-          <form action="" method="post">
+          <form action="dashboard.php" method="post">
             <div class="form-group">
                 <label for="">Username</label>
                 <input type="text" name="username" class="form-control" placeholder="Username" required>
