@@ -11,13 +11,13 @@ if (isset($_POST['upload'])) {
     $file_size=$_FILES['file']['size'];
     $file_type=$_FILES['file']['type'];
 
-    $location="upload/".$file_name;
+    $location="/upload/".$file_name;
 
     if ($file_size < 524880) {
-       if (move_uploaded_file($file_temp,$location)) {
+       if (move_uploaded_file($_FILES['file']['tmp_name'],$location)) {
         try {
             $bdh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-            $sql ="UPDATE tblusers SET P`Photo`='$location' WHERE `id`='$userid'";
+            $sql ="UPDATE tblusers SET `Photo`='$location' WHERE `id`='$userid'";
             $dbh->exec($sql);
 
         }catch(PDOException $e) {
